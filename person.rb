@@ -7,7 +7,7 @@ class Person
   end
 
   attr_reader :id
-  attr_accessor :name
+  attr_accessor :namegit a
   attr_accessor :age
 
   def can_use_service?
