@@ -10,6 +10,7 @@ class Person < Nameable
     @name = name
     @parent_permission = parent_permission
     @id = Random.rand(1..1000)
+    @rentals = []
   end
 
   def can_use_service?
@@ -18,6 +19,11 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(rental)
+    @rentals.push(rental)
+    rental.person = self
   end
 
   private
