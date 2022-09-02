@@ -7,6 +7,7 @@ class Classroom
   end
 
   attr_accessor :label
+  attr_reader :students
 
   # Has-Many relationship
   def add_student(student)
