@@ -7,12 +7,12 @@ class Student < Person
     @classroom = classroom
   end
 
+  # Belong-to relationship
+  attr_reader :classroom
+
   def play_hooky
     "¯\(ツ)/¯"
   end
-
-  # Belong-to relationship
-  attr_accessor :classroom
 
   # Add student to the classroom students
   def classroom=(classroom)
