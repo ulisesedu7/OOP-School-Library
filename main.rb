@@ -50,7 +50,7 @@ def create_person(app)
     when 1
       puts 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      app.create_student(age, name, parent_permission)
+      app.create_student(age, name, parent_permission:)
     when 2
       puts 'Specialization: '
       specialization = gets.chomp
@@ -70,28 +70,30 @@ def create_book(app)
 end
 
 def create_rental(app)
-  return unless app.list_books_with_index.nil? do
+  unless app.list_books_with_index.nil?
     # Display options
     puts 'Select a book from the list by index number: '
     book_i = gets.chomp.to_i
     puts ''
 
     # Display People Options
-    app.list_people_with_index
-    puts 'Select a person from the list by index number(not id): '
-    person_i = gets.chomp.to_i
-    puts ''
+    unless app.list_people_with_index.nil?
 
-    # Date option
-    puts 'Date: '
-    date = gets.chomp
+      puts 'Select a person from the list by index number(not id): '
+      person_i = gets.chomp.to_i
+      puts ''
 
-    app.create_rental(date, person_i, book_i)
+      # Date option
+      puts 'Date: '
+      date = gets.chomp
+
+      app.create_rental(date, person_i, book_i)
+    end
   end
 end
 
 def list_rentals_by_id(app)
-  return unless app.list_people_with_index.nil? do
+  unless app.list_people_with_index.nil?
     puts 'ID of the person'
     person_id = gets.chomp.to_i
     app.list_rentals_by_id(person_id)
