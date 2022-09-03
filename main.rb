@@ -40,7 +40,7 @@ def create_person(app)
   puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
   selection = gets.chomp.to_i
 
-  if selection == 1 || selection == 2
+  if [1, 2].include?(selection)
     puts 'Age: '
     age = gets.chomp.to_i
     puts 'Name: '
@@ -70,7 +70,7 @@ def create_book(app)
 end
 
 def create_rental(app)
-  if  app.list_books_with_index != nil
+  return unless app.list_books_with_index.nil? do
     # Display options
     puts 'Select a book from the list by index number: '
     book_i = gets.chomp.to_i
@@ -91,7 +91,7 @@ def create_rental(app)
 end
 
 def list_rentals_by_id(app)
-  if app.list_people_with_index != nil
+  return unless app.list_people_with_index.nil? do
     puts 'ID of the person'
     person_id = gets.chomp.to_i
     app.list_rentals_by_id(person_id)
@@ -118,4 +118,4 @@ def main
   puts 'Thanks for using the app!'
 end
 
-main()
+main
