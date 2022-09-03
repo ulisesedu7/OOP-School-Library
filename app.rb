@@ -91,7 +91,7 @@ class App
   end
 
   # Create a new rental
-  def create_rental(date, person_i, book_i)
+  def create_rental(date, book_i, person_i)
     rental = Rental.new(date, @books[book_i], @people[person_i])
     @rentals.push(rental)
     puts 'Rental succesfully made'
@@ -108,8 +108,8 @@ class App
       rentals.each do |rental|
         next if rental.person.id == person_id
 
-        puts "Date: #{rental.date}"
-        puts rental.rentals
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        puts ''
       end
     end
   end

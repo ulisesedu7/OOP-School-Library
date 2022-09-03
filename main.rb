@@ -69,6 +69,8 @@ def create_book(app)
   app.create_book(title, author)
 end
 
+# Create Rentals
+# rubocop:disable Style/GuardClause
 def create_rental(app)
   unless app.list_books_with_index.nil?
     # Display options
@@ -99,6 +101,7 @@ def list_rentals_by_id(app)
     app.list_rentals_by_id(person_id)
   end
 end
+# rubocop:enable Style/GuardClause
 
 def main
   app = App.new
