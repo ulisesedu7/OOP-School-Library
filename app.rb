@@ -18,6 +18,7 @@ class App
     puts 'List of books: '
     if @books.empty?
       puts 'No books have been registered!'
+      puts ''
     else
       books.each { |book| 
         puts "Title: #{book.titile} by Author: #{book.author}"
@@ -37,6 +38,7 @@ class App
     puts 'List of people: '
     if @people.empty?
       puts 'There is no people registered!'
+      puts ''
     else
       people.each { |person| 
         puts "#{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
@@ -84,6 +86,7 @@ class App
     puts 'List of rentals: '
     if @rentals.empty?
       puts 'Nothing has been rented here'
+      puts ''
     else
       rentals.each { |rental|
         next if rental.person.id == person_id
