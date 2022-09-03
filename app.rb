@@ -21,16 +21,22 @@ class App
       puts ''
     else
       books.each { |book| 
-        puts "Title: #{book.titile} by Author: #{book.author}"
+        puts "Title: #{book.title} by Author: #{book.author}"
+        puts ''
       }
     end
   end
 
   # List all books with index
   def list_books_with_index
-    @books.each_with_index { |book, index|
-      puts "#{index}) Title: \"#{book.titile}\" by Author: #{book.author}"
-    }
+    if @books.empty?
+      puts 'There is no books to rent!'
+      puts ''
+    else
+      books.each_with_index { |book, index|
+        puts "#{index}) Title: \"#{book.title}\" by Author: #{book.author}"
+      }
+    end
   end
 
   # List all people
@@ -41,16 +47,23 @@ class App
       puts ''
     else
       people.each { |person| 
-        puts "#{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        puts ''
       }
     end
   end
 
   # List all people with index
   def list_people_with_index
-    @people.each_with_index { |person, index|
-      puts "#{index}) #{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
-    }
+    if @people.empty?
+      puts 'There is no people to rent a book!'
+      puts ''
+    else
+      people.each_with_index { |person, index|
+        puts "#{index}) #{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        puts ''
+      }
+    end
   end
 
   # Create a new student 
@@ -58,6 +71,7 @@ class App
     student = Student.new(age, name, parent_permission: parent_permission)
     @people.push(student)
     puts 'Student has been created!'
+    puts ''
   end
 
   # Create a new teacher 
@@ -65,6 +79,7 @@ class App
     teacher = Teacher.new(age, name, specialization)
     @people.push(teacher)
     puts 'Teacher has been created!'
+    puts ''
   end
 
   # Create a new Book
@@ -72,13 +87,15 @@ class App
     book = Book.new(title, author)
     @books.push(book)
     puts 'A book has been created'
+    puts ''
   end
 
   # Create a new rental
   def create_rental(date, person_i, book_i)
-    rental = Rental.new(date, @people[person_i], @people[book_i])
+    rental = Rental.new(date, @books[book_i], @people[person_i])
     @rentals.push(rental)
     puts 'Rental succesfully made'
+    puts ''
   end
 
   # List all rentals for a given ID

@@ -39,20 +39,25 @@ end
 def create_person(app)
   puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
   selection = gets.chomp.to_i
-  puts 'Age: '
-  age = gets.chomp.to_i
-  puts 'Name: '
-  name = gets.chomp
 
-  case selection
-  when 1
-    puts 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp
-    app.create_student(age, name, parent_permission:)
-  when 2
-    puts 'Specialization: '
-    specialization = gets.chomp
-    app.create_teacher(age, name, specialization)
+  if selection == 1 || selection == 2
+    puts 'Age: '
+    age = gets.chomp.to_i
+    puts 'Name: '
+    name = gets.chomp
+
+    case selection
+    when 1
+      puts 'Has parent permission? [Y/N]: '
+      parent_permission = gets.chomp
+      app.create_student(age, name, parent_permission:)
+    when 2
+      puts 'Specialization: '
+      specialization = gets.chomp
+      app.create_teacher(age, name, specialization)
+    end
+  else
+    puts 'Wrong Selection, returning to menu'
   end
 end
 
@@ -65,27 +70,32 @@ def create_book(app)
 end
 
 def create_rental(app)
-  # Display options
-  puts 'Select a book from the following list by number: '
-  app.list_books_with_index
-  book_i = gets.chomp.to_i
+  if  app.list_books_with_index != nil
+    # Display options
+    puts 'Select a book from the list by index number: '
+    book_i = gets.chomp.to_i
+    puts ''
 
-  # Display People Options
-  puts 'Select a person from the following list by number(not id): '
-  app.list_people_with_index
-  people_i = gets.chomp.to_i
+    # Display People Options
+    app.list_people_with_index
+    puts 'Select a person from the list by index number(not id): '
+    person_i = gets.chomp.to_i
+    puts ''
 
-  # Date option
-  puts 'Date: '
-  date = gets.chomp
+    # Date option
+    puts 'Date: '
+    date = gets.chomp
 
-  app.create_rental(date, person_i, book_i)
+    app.create_rental(date, person_i, book_i)
+  end
 end
 
 def list_rentals_by_id(app)
-  puts 'ID of the person'
-  person_id = gets.chomp.to_i
-  app.list_rentals_by_id(person_id)
+  if app.list_people_with_index != nil
+    puts 'ID of the person'
+    person_id = gets.chomp.to_i
+    app.list_rentals_by_id(person_id)
+  end
 end
 
 def main
@@ -100,6 +110,7 @@ def main
       actions(option, app)
     else
       puts 'Sorry, wrong option selected.'
+      puts ''
       sleep(1)
     end
     break if option == 7
