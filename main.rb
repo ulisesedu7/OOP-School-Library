@@ -50,7 +50,7 @@ def create_person
   when 1
     puts 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp
-    App.create_student(age, name, parent_permission: parent_permission)
+    App.create_student(age, name, parent_permission:)
   when 2
     puts 'Specialization: '
     specialization = gets.chomp
@@ -91,7 +91,7 @@ def list_rentals_by_id
 end
 
 def main
-  app = App.new()
+  app = App.new
   loop do
     list_of_options
     option = gets.chomp.to_i

@@ -5,10 +5,10 @@ require_relative './book'
 require_relative './rental'
 
 class App
-  def initialize(books, people, rentals)
-    @books = books
-    @people = people
-    @rentals = rentals
+  def initialize
+    @books = []
+    @people = []
+    @rentals = []
   end
 
   attr_accessor :books, :people, :rentals
@@ -53,7 +53,7 @@ class App
 
   # Create a new student 
   def create_student(age, name, parent_permission)
-    student = Student.new(age, name, parent_permission: parent_permission, @classroom)
+    student = Student.new(age, name, parent_permission: parent_permission)
     @people.push(student)
     puts 'Student has been created!'
   end
