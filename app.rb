@@ -68,7 +68,7 @@ class App
 
   # Create a new student
   def create_student(age, name, parent_permission)
-    student = Student.new(age, name, parent_permission:)
+    student = Student.new(age, name, parent_permission)
     @people.push(student)
     puts 'Student has been created!'
     puts ''

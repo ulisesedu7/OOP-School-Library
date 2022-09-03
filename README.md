@@ -18,6 +18,8 @@ $ cd 'repo_name'
 $ code .
 ```
 
+3. At the command line, rune `ruby main.rb` to run the app.
+
 ## Author
 
 👤 **Ulises Largaespada**

@@ -50,7 +50,7 @@ def create_person(app)
     when 1
       puts 'Has parent permission? [Y/N]: '
       parent_permission = gets.chomp
-      app.create_student(age, name, parent_permission:)
+      app.create_student(age, name, parent_permission)
     when 2
       puts 'Specialization: '
       specialization = gets.chomp
