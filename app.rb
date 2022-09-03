@@ -25,6 +25,13 @@ class App
     end
   end
 
+  # List all books with index
+  def list_books_with_index
+    @books.each_with_index { |book, index|
+      puts "#{index}) Title: \"#{book.titile}\" by Author: #{book.author}"
+    }
+  end
+
   # List all people
   def list_people
     puts 'List of people: '
@@ -37,6 +44,13 @@ class App
     end
   end
 
+  # List all people with index
+  def list_people_with_index
+    @people.each_with_index { |person, index|
+      puts "#{index}) #{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+    }
+  end
+
   # Create a new student 
   def create_student(age, name, parent_permission)
     student = Student.new(age, name, parent_permission: parent_permission, @classroom)
@@ -45,7 +59,7 @@ class App
   end
 
   # Create a new teacher 
-  def create_student(age, name, specialization)
+  def create_teacher(age, name, specialization)
     teacher = Teacher.new(age, name, specialization)
     @people.push(teacher)
     puts 'Teacher has been created!'
