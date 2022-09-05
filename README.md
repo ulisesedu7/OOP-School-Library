@@ -9,7 +9,7 @@
 
 ## Setup
 
-1. You would need to have a computer with ruby installed to run it. 
+1. You would need to have a computer with ruby installed to run it.
 2. Follow these steps on your console to properly clone this repository on your desktop:
 
 ```
@@ -33,6 +33,12 @@ $ code .
 - GitHub: [@githubhandle](https://github.com/HansZizold)
 - Twitter: [@twitterhandle](https://twitter.com/hanzio27)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/hans-paul-zizold-37129037/)
+
+👤 **Nduati Kagiri**
+
+- GitHub: [@NduatiKagiri](https://github.com/NduatiKagiri)
+- Twitter: [@NduatiKagiri](https://twitter.com/NduatiKagiri)
+- LinkedIn: [nduati-kagiri](https://linkedin.com/in/nduati-kagiri/)
 
 ## 🤝 Contributing
 
