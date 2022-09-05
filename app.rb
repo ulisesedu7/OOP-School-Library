@@ -59,7 +59,7 @@ class App
       puts 'There is no people to rent a book!'
       puts ''
     else
-      people.each_with_index do |person|
+      people.each do |person|
         puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
