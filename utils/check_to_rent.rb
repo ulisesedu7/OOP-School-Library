@@ -1,4 +1,4 @@
-require_relative '../app.rb'
+require_relative '../app'
 
 # Check if there's information to rent
 # rubocop:disable Style/GuardClause

@@ -91,7 +91,7 @@ class App
       age = gets.chomp.to_i
       puts 'Name: '
       name = gets.chomp
-  
+
       case selection
       when 1
         puts 'Has parent permission? [Y/N]: '
@@ -135,7 +135,9 @@ class App
       puts ''
     else
       rentals.each do |rental|
-        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == person_id
+        if rental.person.id == person_id
+          puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        end
         puts ''
       end
     end

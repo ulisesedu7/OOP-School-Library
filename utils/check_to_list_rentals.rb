@@ -1,4 +1,4 @@
-require_relative '../app.rb'
+require_relative '../app'
 
 # rubocop:disable Style/GuardClause
 def check_to_list_rentals(app)

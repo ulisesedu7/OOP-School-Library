@@ -30,7 +30,6 @@ def actions(option, app)
   end
 end
 
-
 def main
   app = App.new
   puts 'Welcome to the School Library app!'
