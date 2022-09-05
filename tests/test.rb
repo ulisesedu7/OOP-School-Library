@@ -1,5 +1,5 @@
-require_relative './person'
-require_relative './decorator'
+require_relative '../methods/person'
+require_relative '../decorators/decorator'
 
 person = Person.new(22, 'maximilianus')
 puts person.correct_name

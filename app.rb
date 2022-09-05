@@ -1,8 +1,8 @@
-require_relative './person'
-require_relative './student'
-require_relative './teacher'
-require_relative './book'
-require_relative './rental'
+require_relative './methods/person'
+require_relative './methods/student'
+require_relative './methods/teacher'
+require_relative './methods/book'
+require_relative './methods/rental'
 
 class App
   def initialize
@@ -59,8 +59,8 @@ class App
       puts 'There is no people to rent a book!'
       puts ''
     else
-      people.each_with_index do |person, index|
-        puts "#{index}) #{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+      people.each_with_index do |person|
+        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end
