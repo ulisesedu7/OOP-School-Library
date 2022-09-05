@@ -28,6 +28,12 @@ $ code .
 - Twitter: [@LongswordMusic](https://twitter.com/LongswordMusic)
 - LinkedIn: [Ulises Largaespada](https://www.linkedin.com/in/ulises-largaespada-45570b1a4/)
 
+👤 **Hans Zizold**
+
+- GitHub: [@githubhandle](https://github.com/HansZizold)
+- Twitter: [@twitterhandle](https://twitter.com/hanzio27)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/hans-paul-zizold-37129037/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
