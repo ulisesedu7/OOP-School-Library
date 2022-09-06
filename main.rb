@@ -1,4 +1,6 @@
 require_relative './app'
+require_relative './utils/check_to_rent'
+require_relative './utils/check_to_list_rentals'
 
 def list_of_options
   puts 'Please choose an option by entering a number:'
@@ -14,94 +16,19 @@ end
 def actions(option, app)
   case option
   when 1
-    list_books(app)
+    app.list_books
   when 2
-    list_people(app)
+    app.list_people
   when 3
-    create_person(app)
+    app.create_person
   when 4
-    create_book(app)
+    app.create_book
   when 5
-    create_rental(app)
+    check_to_rent(app)
   when 6
-    list_rentals_by_id(app)
+    check_to_list_rentals(app)
   end
 end
-
-def list_books(app)
-  app.list_books
-end
-
-def list_people(app)
-  app.list_people
-end
-
-def create_person(app)
-  puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-  selection = gets.chomp.to_i
-
-  if [1, 2].include?(selection)
-    puts 'Age: '
-    age = gets.chomp.to_i
-    puts 'Name: '
-    name = gets.chomp
-
-    case selection
-    when 1
-      puts 'Has parent permission? [Y/N]: '
-      parent_permission = gets.chomp
-      app.create_student(age, name, parent_permission:)
-    when 2
-      puts 'Specialization: '
-      specialization = gets.chomp
-      app.create_teacher(age, name, specialization)
-    end
-  else
-    puts 'Wrong Selection, returning to menu'
-  end
-end
-
-def create_book(app)
-  puts 'Title: '
-  title = gets.chomp
-  puts 'Author: '
-  author = gets.chomp
-  app.create_book(title, author)
-end
-
-# Create Rentals
-# rubocop:disable Style/GuardClause
-def create_rental(app)
-  unless app.list_books_with_index.nil?
-    # Display options
-    puts 'Select a book from the list by index number: '
-    book_i = gets.chomp.to_i
-    puts ''
-
-    # Display People Options
-    unless app.list_people_with_index.nil?
-
-      puts 'Select a person from the list by index number(not id): '
-      person_i = gets.chomp.to_i
-      puts ''
-
-      # Date option
-      puts 'Date: '
-      date = gets.chomp
-
-      app.create_rental(date, person_i, book_i)
-    end
-  end
-end
-
-def list_rentals_by_id(app)
-  unless app.list_people_with_index.nil?
-    puts 'ID of the person'
-    person_id = gets.chomp.to_i
-    app.list_rentals_by_id(person_id)
-  end
-end
-# rubocop:enable Style/GuardClause
 
 def main
   app = App.new

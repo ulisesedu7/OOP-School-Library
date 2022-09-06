@@ -1,8 +1,8 @@
-require_relative './person'
-require_relative './student'
-require_relative './teacher'
-require_relative './book'
-require_relative './rental'
+require_relative './methods/person'
+require_relative './methods/student'
+require_relative './methods/teacher'
+require_relative './methods/book'
+require_relative './methods/rental'
 
 class App
   def initialize
@@ -59,8 +59,8 @@ class App
       puts 'There is no people to rent a book!'
       puts ''
     else
-      people.each_with_index do |person, index|
-        puts "#{index}) #{person.class}; Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+      people.each do |person|
+        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end
@@ -82,8 +82,37 @@ class App
     puts ''
   end
 
+  # Create Person
+  def create_person
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    selection = gets.chomp.to_i
+    if [1, 2].include?(selection)
+      puts 'Age: '
+      age = gets.chomp.to_i
+      puts 'Name: '
+      name = gets.chomp
+
+      case selection
+      when 1
+        puts 'Has parent permission? [Y/N]: '
+        parent_permission = gets.chomp
+        create_student(age, name, parent_permission:)
+      when 2
+        puts 'Specialization: '
+        specialization = gets.chomp
+        create_teacher(age, name, specialization)
+      end
+    else
+      puts 'Wrong Selection, returning to menu'
+    end
+  end
+
   # Create a new Book
-  def create_book(title, author)
+  def create_book
+    puts 'Title: '
+    title = gets.chomp
+    puts 'Author: '
+    author = gets.chomp
     book = Book.new(title, author)
     @books.push(book)
     puts 'A book has been created'
@@ -106,9 +135,9 @@ class App
       puts ''
     else
       rentals.each do |rental|
-        next if rental.person.id == person_id
-
-        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        if rental.person.id == person_id
+          puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        end
         puts ''
       end
     end
