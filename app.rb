@@ -3,6 +3,7 @@ require_relative './methods/student'
 require_relative './methods/teacher'
 require_relative './methods/book'
 require_relative './methods/rental'
+require_relative './data-functions/books_data.rb'
 
 class App
   def initialize
@@ -59,8 +60,8 @@ class App
       puts 'There is no people to rent a book!'
       puts ''
     else
-      people.each do |person|
-        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+      people.each_with_index do |person, index|
+        puts "#{index}) [#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end
@@ -141,5 +142,10 @@ class App
         puts ''
       end
     end
+  end
+
+  # Save Data funciton
+  def save_data
+    save_books(@books)
   end
 end

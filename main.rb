@@ -47,6 +47,7 @@ def main
     end
     break if option == 7
   end
+  app.save_data
   puts 'Thanks for using the app!'
 end
 
