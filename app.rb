@@ -3,8 +3,9 @@ require_relative './methods/student'
 require_relative './methods/teacher'
 require_relative './methods/book'
 require_relative './methods/rental'
-require_relative './data-functions/books_data.rb'
-require_relative './data-functions/people_data.rb'
+require_relative './data-functions/books_data'
+require_relative './data-functions/people_data'
+require_relative './data-functions/rentals_data'
 
 class App
   def initialize
@@ -149,11 +150,13 @@ class App
   def save_data
     save_books(@books)
     save_people(@people)
+    save_rentals(@rentals)
   end
 
   # Load Data Function
   def load_data
     @books = loaded_books()
     @people = loaded_people()
+    @rentals = loaded_rentals()
   end
 end

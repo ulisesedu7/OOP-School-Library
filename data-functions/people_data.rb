@@ -1,5 +1,5 @@
 require_relative '../utils/update_file'
-require_relative '../methods/person.rb'
+require_relative '../methods/person'
 
 def save_people(people)
   people_data = []
