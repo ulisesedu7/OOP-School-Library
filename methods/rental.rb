@@ -8,7 +8,9 @@ class Rental
     @date = date
 
     @book = book
+    @book.add_rental(self)
 
     @person = person
+    @perosn.add_rental(self)
   end
 end

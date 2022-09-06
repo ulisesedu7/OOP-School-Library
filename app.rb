@@ -148,4 +148,9 @@ class App
   def save_data
     save_books(@books)
   end
+
+  # Load Data Function
+  def load_data
+    @books = loaded_books()
+  end
 end

@@ -34,6 +34,7 @@ def main
   app = App.new
   puts 'Welcome to the School Library app!'
   puts ''
+  app.load_data
 
   loop do
     list_of_options
