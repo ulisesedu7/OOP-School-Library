@@ -49,7 +49,7 @@ class App
       puts ''
     else
       people.each do |person|
-        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        puts "[#{person.type}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end

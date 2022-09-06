@@ -9,7 +9,8 @@ def save_people(people)
     people_data.push({
       age: person.age,
       name: person.name,
-      id: person.id
+      id: person.id,
+      type: person.type
     })
   end
   
@@ -26,7 +27,9 @@ def loaded_people
 
   unless hash_people.empty?
     hash_people.each do |person|
-      loaded_people << Person.new(person['age'], person['name'])
+      loaded_people << Student.new(person['age'], person['name']) if person['type'] == 'Student'
+
+      loaded_people << Teacher.new(person['age'], person['name']) if person['type'] == 'Teacher'
     end
     people_file.close
   end
