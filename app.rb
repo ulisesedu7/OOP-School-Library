@@ -124,7 +124,7 @@ class App
 
   # Create a new rental
   def create_rental(date, book_i, person_i)
-    rental = Rental.new(date, @books[book_i], @people[person_i])
+    rental = Rental.new(date, @books[book_i], @books[book_i].title, @books[book_i].author, @people[person_i], @people[person_i].id)
     @rentals.push(rental)
     puts 'Rental succesfully made'
     puts ''
@@ -138,8 +138,8 @@ class App
       puts ''
     else
       rentals.each do |rental|
-        if rental.person.id == person_id
-          puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        if rental.person_id == person_id
+          puts "Date: #{rental.date}, Book \"#{rental.book_title}\" by #{rental.book_author}"
         end
         puts ''
       end
@@ -157,6 +157,6 @@ class App
   def load_data
     @books = loaded_books()
     @people = loaded_people()
-    # @rentals = loaded_rentals(@people, @books)
+    @rentals = loaded_rentals()
   end
 end
