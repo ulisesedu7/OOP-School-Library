@@ -27,9 +27,9 @@ def loaded_people
 
   unless hash_people.empty?
     hash_people.each do |person|
-      loaded_people << Student.new(person['age'], person['name']) if person['type'] == 'Student'
+      loaded_people << Student.new(person['age'], person['name'], person['id']) if person['type'] == 'Student'
 
-      loaded_people << Teacher.new(person['age'], person['name']) if person['type'] == 'Teacher'
+      loaded_people << Teacher.new(person['age'], person['name'], person['id']) if person['type'] == 'Teacher'
     end
     people_file.close
   end

@@ -3,13 +3,14 @@ require_relative './classroom'
 
 class Student < Person
   # Belong-to relationship
-  attr_reader :classroom
+  attr_reader :classroom, :id
   attr_accessor :parent_permission, :type
 
-  def initialize(age, name, type = 'Student', classroom = 'none', parent_permission: true)
+  def initialize(age, name, id, type = 'Student', classroom = 'none', parent_permission: true)
     super(age, name, parent_permission:)
     @classroom = classroom
     @type = type
+    @id = id
   end
 
   def play_hooky
