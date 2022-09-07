@@ -3,6 +3,9 @@ require_relative './methods/student'
 require_relative './methods/teacher'
 require_relative './methods/book'
 require_relative './methods/rental'
+require_relative './data-functions/books_data'
+require_relative './data-functions/people_data'
+require_relative './data-functions/rentals_data'
 
 class App
   def initialize
@@ -47,7 +50,7 @@ class App
       puts ''
     else
       people.each do |person|
-        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+        puts "[#{person.type}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end
@@ -59,8 +62,8 @@ class App
       puts 'There is no people to rent a book!'
       puts ''
     else
-      people.each do |person|
-        puts "[#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
+      people.each_with_index do |person, index|
+        puts "#{index}) [#{person.class}] Name: #{person.name}, Age: #{person.age}, ID: #{person.id}"
         puts ''
       end
     end
@@ -121,7 +124,8 @@ class App
 
   # Create a new rental
   def create_rental(date, book_i, person_i)
-    rental = Rental.new(date, @books[book_i], @people[person_i])
+    rental = Rental.new(date, @books[book_i], @books[book_i].title, @books[book_i].author, @people[person_i],
+                        @people[person_i].id)
     @rentals.push(rental)
     puts 'Rental succesfully made'
     puts ''
@@ -135,11 +139,25 @@ class App
       puts ''
     else
       rentals.each do |rental|
-        if rental.person.id == person_id
-          puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}"
+        if rental.person_id == person_id
+          puts "Date: #{rental.date}, Book \"#{rental.book_title}\" by #{rental.book_author}"
         end
         puts ''
       end
     end
+  end
+
+  # Save Data funciton
+  def save_data
+    save_books(@books)
+    save_people(@people)
+    save_rentals(@rentals)
+  end
+
+  # Load Data Function
+  def load_data
+    @books = loaded_books
+    @people = loaded_people
+    @rentals = loaded_rentals
   end
 end

@@ -34,6 +34,7 @@ def main
   app = App.new
   puts 'Welcome to the School Library app!'
   puts ''
+  app.load_data
 
   loop do
     list_of_options
@@ -47,6 +48,7 @@ def main
     end
     break if option == 7
   end
+  app.save_data
   puts 'Thanks for using the app!'
 end
 
