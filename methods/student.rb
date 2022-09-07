@@ -7,7 +7,7 @@ class Student < Person
   attr_reader :classroom, :id
   attr_accessor :parent_permission, :type
 
-  def initialize(age, name, id, type = 'Student', classroom = 'none', parent_permission: true)
+  def initialize(age, name, id = Random.rand(1..1000), type = 'Student', classroom = 'none', parent_permission: true)
     super(age, name, parent_permission:)
     @classroom = classroom
     @type = type
