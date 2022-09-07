@@ -10,13 +10,11 @@ class Rental
     @date = date
 
     @book = book
-    # @book.add_rental(self)
 
     @book_title = book_title
     @book_author = book_author
 
     @person = person
-    # @person.add_rental(self)
 
     @person_id = person_id
   end
