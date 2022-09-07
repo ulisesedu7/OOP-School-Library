@@ -124,7 +124,8 @@ class App
 
   # Create a new rental
   def create_rental(date, book_i, person_i)
-    rental = Rental.new(date, @books[book_i], @books[book_i].title, @books[book_i].author, @people[person_i], @people[person_i].id)
+    rental = Rental.new(date, @books[book_i], @books[book_i].title, @books[book_i].author, @people[person_i],
+                        @people[person_i].id)
     @rentals.push(rental)
     puts 'Rental succesfully made'
     puts ''
@@ -155,8 +156,8 @@ class App
 
   # Load Data Function
   def load_data
-    @books = loaded_books()
-    @people = loaded_people()
-    @rentals = loaded_rentals()
+    @books = loaded_books
+    @people = loaded_people
+    @rentals = loaded_rentals
   end
 end

@@ -1,6 +1,7 @@
 require_relative './person'
 require_relative './classroom'
 
+# rubocop:disable Metrics/ParameterLists
 class Student < Person
   # Belong-to relationship
   attr_reader :classroom, :id
@@ -23,3 +24,4 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
+# rubocop:enable Metrics/ParameterLists

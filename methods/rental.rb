@@ -1,6 +1,7 @@
 require_relative './person'
 require_relative './book'
 
+# rubocop:disable Metrics/ParameterLists
 class Rental
   attr_accessor :date, :book_title, :book_author, :person_id
   attr_reader :book, :person
@@ -20,3 +21,4 @@ class Rental
     @person_id = person_id
   end
 end
+# rubocop:enable Metrics/ParameterLists

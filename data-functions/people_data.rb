@@ -3,17 +3,16 @@ require_relative '../methods/person'
 
 def save_people(people)
   people_data = []
-  
-  people.each do |person|
 
+  people.each do |person|
     people_data.push({
-      age: person.age,
-      name: person.name,
-      id: person.id,
-      type: person.type
-    })
+                       age: person.age,
+                       name: person.name,
+                       id: person.id,
+                       type: person.type
+                     })
   end
-  
+
   update_file('people', people_data)
 end
 
@@ -21,7 +20,7 @@ def loaded_people
   loaded_people = []
 
   unless File.zero?('./library-data/people.json')
-    people_file = File.open("./library-data/people.json")
+    people_file = File.open('./library-data/people.json')
     hash_people = JSON.parse(people_file.read)
   end
 
@@ -35,5 +34,4 @@ def loaded_people
   end
 
   loaded_people
-
 end
