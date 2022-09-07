@@ -23,7 +23,6 @@ class Person < Nameable
 
   def add_rental(rental)
     @rentals.push(rental)
-    rental.person = self
   end
 
   private

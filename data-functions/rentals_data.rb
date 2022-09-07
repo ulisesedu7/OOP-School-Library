@@ -4,8 +4,7 @@ require_relative '../methods/rental'
 def save_rentals(rentals)
   rentals_data = []
 
-  rentals.each do |rental|
-    
+  rentals.each do |rental|  
     rentals_data.push({
       date: rental.date,
       book: rental.book,
@@ -16,7 +15,7 @@ def save_rentals(rentals)
   update_file('rentals', rentals_data)
 end
 
-def loaded_rentals
+def loaded_rentals(people, books)
   loaded_rentals = []
 
   unless File.zero?('./library-data/rentals.json')
@@ -26,7 +25,8 @@ def loaded_rentals
 
   unless hash_rentals.empty?
     hash_rentals.each do |rental|
-      loaded_rentals << Rental.new(rental['date'], rental['book'], rental['person'])
+
+      loaded_rentals << Rental.new(rental['date'], rental['book_id'], rental['person_id'])
     end
     rentals_file.close
   end

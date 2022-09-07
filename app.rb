@@ -157,6 +157,6 @@ class App
   def load_data
     @books = loaded_books()
     @people = loaded_people()
-    @rentals = loaded_rentals()
+    # @rentals = loaded_rentals(@people, @books)
   end
 end
