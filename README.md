@@ -6,6 +6,7 @@
 ## Built With
 
 - Ruby
+- Rspec for testing
 
 ## Setup
 
@@ -18,7 +19,8 @@ $ cd 'repo_name'
 $ code .
 ```
 
-3. At the command line, rune `ruby main.rb` to run the app.
+3. At the command line, run `ruby main.rb` to run the app.
+4. Run `rspec` to run the tests of the methods.
 
 ## Author
 
