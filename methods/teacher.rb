@@ -9,6 +9,7 @@ class Teacher < Person
   end
 
   attr_accessor :type
+  attr_reader :specialization
 
   def can_use_service?
     true
